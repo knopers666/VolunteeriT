@@ -8,6 +8,10 @@
     <div class="container">
         <div class="row">
             <form class="col-md-offset-3 col-lg-6 col-sm-6">
+                <div class="useravatar">
+                    <img alt="" src="http://lorempixel.com/100/100/people/7/">
+                    <h2>$user->name</h2>
+                </div>
                 <div class="form-group">
                     <label for="about">About me:</label>
                     <input type="about" class="form-control" id="about">
@@ -26,11 +30,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="pwd">Password to confirm:</label>
+                    <label for="pwd">Password:</label>
                     <input type="password" class="form-control" id="pwd">
                 </div>
 
-                <button type="edit" class="btn btn-default">Edit</button>
+                <div class="col-xs-offset-5 edit-btn">
+                <button type="button" class="btn-lg btn-primary">Edit</button>
+                </div>
             </form>
 
         </div>
