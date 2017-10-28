@@ -23,12 +23,33 @@ class DatabaseSeeder extends Seeder
         $role = Role::create(['name' => 'fundation']);
 
         $admin = User::create([
-            'name' => 'admin',
+        'name' => 'admin',
+        'email' => str_random(10).'@gmail.com',
+        'password' => bcrypt('test123'),
+    ]);
+        $admin->assignRole('admin');
+
+        $user = User::create([
+            'name' => 'user',
             'email' => str_random(10).'@gmail.com',
             'password' => bcrypt('test123'),
         ]);
+        $admin->assignRole('user');
 
-        $admin->assignRole('admin');
+        $moderator = User::create([
+            'name' => 'moderator',
+            'email' => str_random(10).'@gmail.com',
+            'password' => bcrypt('test123'),
+        ]);
+        $admin->assignRole('moderator');
+
+        $fundation = User::create([
+            'name' => 'fundation',
+            'email' => str_random(10).'@gmail.com',
+            'password' => bcrypt('test123'),
+        ]);
+        $admin->assignRole('fundation');
+
 
     }
 }
