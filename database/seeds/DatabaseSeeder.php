@@ -24,29 +24,29 @@ class DatabaseSeeder extends Seeder
         $role = Role::create(['name' => 'fundation']);
 
         $admin = User::create([
-        'name' => 'admin',
-        'email' => str_random(10).'@gmail.com',
-        'password' => bcrypt('test123'),
-    ]);
+            'name' => 'admin',
+            'email' => str_random(10) . '@gmail.com',
+            'password' => bcrypt('test123'),
+        ]);
         $admin->assignRole('admin');
 
         $user = User::create([
             'name' => 'user',
-            'email' => str_random(10).'@gmail.com',
+            'email' => str_random(10) . '@gmail.com',
             'password' => bcrypt('test123'),
         ]);
         $admin->assignRole('user');
 
         $moderator = User::create([
             'name' => 'moderator',
-            'email' => str_random(10).'@gmail.com',
+            'email' => str_random(10) . '@gmail.com',
             'password' => bcrypt('test123'),
         ]);
         $admin->assignRole('moderator');
 
         $fundation = User::create([
             'name' => 'fundation',
-            'email' => str_random(10).'@gmail.com',
+            'email' => str_random(10) . '@gmail.com',
             'password' => bcrypt('test123'),
         ]);
         $admin->assignRole('fundation');
@@ -58,5 +58,14 @@ class DatabaseSeeder extends Seeder
             'date' => Carbon::parse('2017-11-13'),
             'description' => "TEST xD",
         ]);
+        $faker = Faker\Factory::create();
+        for ($i = 0; $i <= 100; $i++) {
+         \App\Event::create([
+             'name' => $faker->word,
+             'location' => $faker->city,
+             'date' => $faker->date($format = 'Y-m-d', $min = 'now'),
+             'description' => $faker->text,
+         ]);
+        }
     }
 }
