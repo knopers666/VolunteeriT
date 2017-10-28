@@ -57,7 +57,7 @@
     <script>
         var pager = new Pager();
         $(document).ready(function() {
-            pager.itemsPerPage = 5;
+            pager.itemsPerPage = 10;
             pager.pagingItemsContainer = $('#index-list');
             pager.items = $('a.index-listitem', pager.pagingItemsContainer);
             pager.showPage(1);
