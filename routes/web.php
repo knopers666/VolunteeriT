@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/test', function () {
-    return view('user.viev');
-});
+Route::resource('user', 'UserController');
+
+Route::resource('event', 'EventController');
