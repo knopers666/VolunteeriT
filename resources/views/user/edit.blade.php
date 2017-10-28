@@ -34,7 +34,9 @@
                     <input type="password" class="form-control" id="pwd">
                 </div>
 
-                <button type="edit" class="btn btn-default">Edit</button>
+                <div class="col-xs-offset-5 edit-btn">
+                <button type="button" class="btn-lg btn-primary">Edit</button>
+                </div>
             </form>
 
         </div>
