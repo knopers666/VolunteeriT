@@ -10,11 +10,11 @@
             <div class="col-md-offset-3 col-lg-6 col-sm-6">
                 <div class="card hovercard">
                     <div class="card-background">
-                        <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/9/">
+                        <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/7/">
                         <!-- http://lorempixel.com/850/280/people/9/ -->
                     </div>
                     <div class="useravatar">
-                        <img alt="" src="http://lorempixel.com/100/100/people/9/">
+                        <img alt="" src="http://lorempixel.com/100/100/people/7/">
                     </div>
                     <div class="card-info"> <span class="card-title">$user->name</span>
 
@@ -35,10 +35,10 @@
                         </div>
                         <div class="tab-pane fade in active" id="tab3">
                             <h4>Previous events: </h4>
-                            <div class="info">Event1</div>
-                            <div class="info">Event2</div>
-                            <div class="info">Event3</div>
-                            <div class="info">Event4</div>
+                            <div class="info">$Event1->name</div>
+                            <div class="info">$Event2->name</div>
+                            <div class="info">$Event3->name</div>
+                            <div class="info">$Event4->name</div>
                         </div>
                 </div>
 
