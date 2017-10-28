@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use App\User;
@@ -30,5 +31,11 @@ class DatabaseSeeder extends Seeder
 
         $admin->assignRole('admin');
 
+        \App\Event::create([
+            'name' => 'Pomoc dla ubogich',
+            'location' => 'Warsaw',
+            'date' => Carbon::parse('2017-11-13'),
+            'description' => "TEST xD",
+        ]);
     }
 }
