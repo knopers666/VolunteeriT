@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
         $admin->assignRole('fundation');
 
 
-        \App\Event::create([
+       /** \App\Event::create([
             'name' => 'Pomoc dla ubogich',
             'location' => 'Warsaw',
             'date' => Carbon::parse('2017-11-13'),
@@ -66,6 +66,6 @@ class DatabaseSeeder extends Seeder
              'date' => $faker->date($format = 'Y-m-d', $min = 'now'),
              'description' => $faker->text,
          ]);
-        }
+        }**/
     }
 }

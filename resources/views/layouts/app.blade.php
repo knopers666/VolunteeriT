@@ -92,7 +92,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
     <script>
         $(function() {
-            $("#date").datepicker({ dateFormat: "yy-mm-dd" });
+            $.fn.datepicker.defaults.format = "yyyy-mm-dd";
+            $(".datepicker").datepicker({ format: 'dd/mm/yyyy' });
         });
     </script>
 </body>

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use DateTime;
 use Egulias\EmailValidator\Validation\Exception\EmptyValidationList;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -45,9 +46,9 @@ class EventController extends Controller {
     public function store()
     {
         $rules = array(
-            'name'       => 'required|unique:posts|max:255',
+            'name'       => 'required|unique:events|max:255',
             'location'      => 'required',
-            'date' => 'required',
+            'date' => 'required|after_or_equal:today',
             'description' => 'required'
         );
         $validator = Validator::make(Input::all(), $rules);
@@ -58,12 +59,14 @@ class EventController extends Controller {
                 ->withInput(Input::except('password'));
         } else {
             // store
-            $date =  DateTime::createFromFormat('d/m/Y', Input::get('date'))->format('Y-m-d');
+            $user = Auth::user();
+            $date =  DateTime::createFromFormat('Y-m-d', Input::get('date'))->format('Y-m-d');
             $event = new \App\Event();
             $event->name       = Input::get('name');
             $event->location      = Input::get('location');
             $event->date = $date;
             $event->description = Input::get('description');
+            $event->owner_id = $user->id;
             $event->save();
 
             // redirect

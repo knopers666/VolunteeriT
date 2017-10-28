@@ -28,7 +28,7 @@
                     <label for="date" class="col-xs-3 col-form-label mr-2">Data</label>
                     <div class="col-xs-9">
                         <div class="input-group date"  data-provide="datepicker">
-                            <input type="text" class="form-control datepicker" value="{{ date("d/m/Y") }}" id="date" name="date">
+                            <input type="text" class="form-control datepicker" value="{{ date("Y-m-d") }}" id="date" name="date">
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-th"></span>
                             </div>
