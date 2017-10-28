@@ -2,7 +2,7 @@ var Pager = function() {
     this.itemsPerPage = 10;
     this.currentPage = 1;
     this.pagingControlsContainer = '#pagingControls';
-    this.pagingItemsContainer = '#eventsindex-list';
+    this.pagingItemsContainer = '#index-list';
     this.numPages = function () {
         var numPages = 0;
         if (this.items != null && this.itemsPerPage != null) {
@@ -21,7 +21,7 @@ var Pager = function() {
         var html = '';
         var foo = (page - 1) * this.itemsPerPage;
         this.items.slice(foo, foo + this.itemsPerPage).each(function () {
-            html += '<a href="#" class="eventsindex-listitem list-group-item list-group-item-action flex-column align-items-start">' + $(this).html() + "</a>";
+            html += '<a href="#" class="index-listitem list-group-item list-group-item-action flex-column align-items-start">' + $(this).html() + "</a>";
         });
         $(this.pagingItemsContainer).html(html);
         renderControls(this.pagingControlsContainer, this.currentPage, this.numPages());
