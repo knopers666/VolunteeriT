@@ -15,6 +15,9 @@
                     @endif
 
                     You are logged in!
+                        @role('admin')
+                            I am a writer!
+                        @endrole
                 </div>
             </div>
         </div>

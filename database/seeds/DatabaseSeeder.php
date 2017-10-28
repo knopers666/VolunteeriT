@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
+use App\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,5 +21,14 @@ class DatabaseSeeder extends Seeder
         $role = Role::create(['name' => 'admin']);
         $role = Role::create(['name' => 'moderator']);
         $role = Role::create(['name' => 'fundation']);
+
+        $admin = User::create([
+            'name' => 'admin',
+            'email' => str_random(10).'@gmail.com',
+            'password' => bcrypt('test123'),
+        ]);
+
+        $admin->assignRole('admin');
+
     }
 }
