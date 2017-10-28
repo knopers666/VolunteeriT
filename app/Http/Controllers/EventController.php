@@ -3,18 +3,10 @@
  * Created by PhpStorm.
  * User: Denis
  * Date: 28.10.2017
- * Time: 14:35
+ * Time: 14:48
  */
-
-namespace App\Http\Controllers;
-
-
-use Illuminate\Support\Facades\View;
-
-class UserController extends Controller {
-=======
-class UserController extends BaseController {
->>>>>>> origin/master
+class
+    EventController extends BaseController {
     /**
      * Display a listing of the resource.
      *
@@ -32,7 +24,7 @@ class UserController extends BaseController {
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -42,7 +34,31 @@ class UserController extends BaseController {
      */
     public function store()
     {
-        //
+        $rules = array(
+            'name'       => 'required',
+            'location'      => 'required',
+            'date' => 'required',
+            'description' => 'required'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('nerds/create')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        } else {
+            // store
+            $event = new \App\Event();
+            $event->name       = Input::get('name');
+            $event->location      = Input::get('location');
+            $event->date = Input::get('date');
+            $event->description = Input::get('description');
+            $event->save();
+
+            // redirect
+            Session::flash('message', 'Successfully created nerd!');
+            return Redirect::to('');
+        }
     }
 
     /**
@@ -53,9 +69,7 @@ class UserController extends BaseController {
      */
     public function show($id)
     {
-        $user = \App\User::find($id);
-
-        return View::make("user.view")->with('user', $user);
+        //
     }
 
     /**
@@ -66,7 +80,7 @@ class UserController extends BaseController {
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**
