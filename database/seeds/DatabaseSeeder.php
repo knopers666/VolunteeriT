@@ -11,6 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        // Reset cached roles and permissions
+        app()['cache']->forget('spatie.permission.cache');
+
+        // create roles and assign existing permissions
+        $role = Role::create(['name' => 'user']);
+        $role = Role::create(['name' => 'admin']);
+        $role = Role::create(['name' => 'moderator']);
+        $role = Role::create(['name' => 'fundation']);
     }
 }
