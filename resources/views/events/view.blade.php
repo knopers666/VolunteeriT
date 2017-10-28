@@ -8,7 +8,7 @@
                 <h2 class="eventview-subtitle">{{ $event->location }}, {{ $event->date }}</h2>
             </div>
             <div class="col-md-4">
-                <img src="http://via.placeholder.com/200x200" class="img-thumbnail eventview-pic">
+                <img src="http://lorempixel.com/200/200/" class="img-thumbnail eventview-pic">
             </div>
         </div>
         <div class="row" style="height: 40px"></div>

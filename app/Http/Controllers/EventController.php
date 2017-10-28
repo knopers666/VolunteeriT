@@ -23,7 +23,7 @@ class EventController extends Controller {
      */
     public function index()
     {
-        $events = Event::findAll();
+        $events = Event::all();
         return View::make("events.index")->with('events', $events);
     }
 
