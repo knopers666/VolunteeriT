@@ -1,12 +1,21 @@
 <?php
+namespace App\Http\Controllers;
+use App\Event;
+use DateTime;
+use Egulias\EmailValidator\Validation\Exception\EmptyValidationList;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
+
 /**
  * Created by PhpStorm.
  * User: Denis
  * Date: 28.10.2017
  * Time: 14:48
  */
-class
-    EventController extends BaseController {
+class EventController extends Controller {
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +23,8 @@ class
      */
     public function index()
     {
-        //
+        $events = Event::findAll();
+        return View::make("events.index")->with('events', $events);
     }
 
     /**
@@ -24,7 +34,7 @@ class
      */
     public function create()
     {
-
+        return View::make("events.create");
     }
 
     /**
@@ -35,7 +45,7 @@ class
     public function store()
     {
         $rules = array(
-            'name'       => 'required',
+            'name'       => 'required|unique:posts|max:255',
             'location'      => 'required',
             'date' => 'required',
             'description' => 'required'
@@ -43,21 +53,22 @@ class
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('nerds/create')
+            return Redirect::to('event/create')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
             // store
+            $date =  DateTime::createFromFormat('d/m/Y', Input::get('date'))->format('Y-m-d');
             $event = new \App\Event();
             $event->name       = Input::get('name');
             $event->location      = Input::get('location');
-            $event->date = Input::get('date');
+            $event->date = $date;
             $event->description = Input::get('description');
             $event->save();
 
             // redirect
-            Session::flash('message', 'Successfully created nerd!');
-            return Redirect::to('');
+            Session::flash('message', 'Sukces stworzyłeś event!');
+            return Redirect::to('event');
         }
     }
 
@@ -69,7 +80,8 @@ class
      */
     public function show($id)
     {
-        //
+        $event = Event::find($id);
+        return View::make("events.view")->with('event', $event);
     }
 
     /**
@@ -80,7 +92,8 @@ class
      */
     public function edit($id)
     {
-        //
+        $event = Event::find($id);
+        return View::make("events.edit")->with('event', $event);
     }
 
     /**
@@ -91,7 +104,32 @@ class
      */
     public function update($id)
     {
-        //
+        $rules = array(
+            'name'       => 'required|unique:posts|max:255',
+            'location'      => 'required',
+            'date' => 'required',
+            'description' => 'required'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('event/edit')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        } else {
+            // store
+            $date =  DateTime::createFromFormat('d/m/Y', Input::get('date'))->format('Y-m-d');
+            $event = \App\Event()::find($id);
+            $event->name       = Input::get('name');
+            $event->location      = Input::get('location');
+            $event->date = $date;
+            $event->description = Input::get('description');
+            $event->save();
+
+            // redirect
+            Session::flash('message', 'Sukces uaktułalniłeść event!');
+            return Redirect::to('event');
+        }
     }
 
     /**
@@ -102,6 +140,10 @@ class
      */
     public function destroy($id)
     {
-        //
+        // delete
+        $event = Event::find($id);
+        $event->delete();
+        Session::flash('message', 'Successfully deleted the event!');
+        return Redirect::to('events');
     }
 }
