@@ -8,13 +8,9 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Support\Facades\View;
 
 class UserController extends Controller {
-=======
-class UserController extends BaseController {
->>>>>>> origin/master
     /**
      * Display a listing of the resource.
      *
