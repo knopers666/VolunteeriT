@@ -6,6 +6,15 @@
     <link href="{{asset('css/eventedit.css')}}" rel ="stylesheet"/>
 
     <div class="container">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="row">
             <form action="{{ url('event/'.$event->id) }}" method="post" class="col-md-offset-3 col-lg-6 col-sm-6">
                 <div class="eventavatar">
@@ -21,8 +30,8 @@
                     <input type="location" class="form-control" id="location" value="{{ $event->location }}">
                 </div>
                 <div class="form-group">
-                    <label for="data">Date:</label>
-                    <input type="data" class="form-control" id="data" value="{{ $event->date }}">
+                    <label for="date">Date:</label>
+                    <input type="data" class="form-control" id="date" value="{{ $event->date }}">
                 </div>
                 <div class="form-group">
                     <label for="description">Description:</label>

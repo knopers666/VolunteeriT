@@ -84,8 +84,8 @@ class EventController extends Controller {
     public function show($id)
     {
         $event = Event::find($id);
-        $owner = User::find($event->owner_id);
-        return View::make("events.view")->with(['event' => $event, 'user' => $owner]);
+        //$owner = User::find($event->owner_id);
+        return View::make("events.view")->with(['event' => $event]);
     }
 
     /**
@@ -117,7 +117,7 @@ class EventController extends Controller {
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('event/edit')
+            return Redirect::to('event/'.$id.'/edit')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
@@ -132,7 +132,7 @@ class EventController extends Controller {
 
             // redirect
             Session::flash('message', 'Successfully edited event!');
-            return Redirect::to('/');
+            return Redirect::to('/event/');
         }
     }
 
