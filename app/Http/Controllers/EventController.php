@@ -131,7 +131,7 @@ class EventController extends Controller {
             $event->save();
 
             // redirect
-            Session::flash('message', 'Sukces uaktułalniłeść event!');
+            Session::flash('message', 'Successfully edited event!');
             return Redirect::to('event');
         }
     }
@@ -148,7 +148,7 @@ class EventController extends Controller {
         $event = Event::find($id);
         $event->delete();
         Session::flash('message', 'Successfully deleted the event!');
-        return Redirect::to('events');
+        return Redirect::to('event');
     }
 
     public function join_event($id) {
