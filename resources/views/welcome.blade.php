@@ -5,21 +5,58 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>VolunteerIT</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+
         <style>
 html, body {
-    background-color: #fff;
+
+    background-image: url("https://i.imgur.com/KMg0XlZ.jpg");
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
+    filter: none;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
+
+
             }
+
+
+.btn {
+    border-radius: 8px; /* Remove borders */
+    border: solid 1px #404040;
+    color: #404040; /* Add a text color */
+    padding: 14px 50px; /* Add some padding */
+    cursor: pointer; /* Add a pointer cursor on mouse-over */
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition-duration: 1s;
+}
+.warning {background-color: #e6e6e6;} /* Orange */
+.warning:hover{background-color: #404040;
+    color: white;}
+
+.special{
+    font-weight: bold;
+}
+
+.title{
+    font-weight: 300;
+    color: #161616;
+}
+
 
             .full-height {
     height: 100vh;
@@ -76,20 +113,16 @@ html, body {
                 @endauth
     </div>
 @endif
-
+<div class="container">
 <div class="content">
     <div class="title m-b-md">
-        Laravel
+        Volunteer<span class="special">IT</span>
     </div>
-
-    <div class="links">
-        <a href="https://laravel.com/docs">Documentation</a>
-        <a href="https://laracasts.com">Laracasts</a>
-        <a href="https://laravel-news.com">News</a>
-        <a href="https://forge.laravel.com">Forge</a>
-        <a href="https://github.com/laravel/laravel">GitHub</a>
+    <div>
+        <a href="{{ route('register') }}" class="btn warning">Join Us!</a>
     </div>
 </div>
+        </div>
 </div>
 </body>
 </html>
