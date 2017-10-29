@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="col-xs-offset-5 edit-btn">
-                    <button type="button" class="btn-lg btn-primary">Edit</button>
+                    <input type="button" class="btn-lg btn-primary">Edit</input>
                 </div>
             </form>
 
