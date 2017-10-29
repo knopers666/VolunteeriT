@@ -120,7 +120,7 @@ class UserController extends Controller {
         } else {
             // store
             $date =  DateTime::createFromFormat('d/m/Y', Input::get('date'))->format('Y-m-d');
-            $event = \App\Event()::find($id);
+            $user = \App\User()::find($id);
             $event->name       = Input::get('name');
             $event->location      = Input::get('location');
             $event->date = $date;
@@ -142,10 +142,10 @@ class UserController extends Controller {
     public function destroy($id)
     {
         // delete
-        $event = Event::find($id);
-        $event->delete();
+        $user = User::find($id);
+        $user->delete();
         Session::flash('message', 'Successfully deleted the event!');
-        return Redirect::to('events');
+        return Redirect::to('user');
     }
 
 }

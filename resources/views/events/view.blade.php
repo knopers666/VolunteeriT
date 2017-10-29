@@ -3,6 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row">
+            @if (Session::has('message'))
+                <div class="alert alert-info">{{ Session::get('message') }}</div>
+            @endif
             <div class="col-md-8">
                 <h1 class="eventview-title">{{ $event->name }}</h1>
                 <h2 class="eventview-subtitle">{{ $event->location }}, {{ $event->date }}</h2>

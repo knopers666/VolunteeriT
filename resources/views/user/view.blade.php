@@ -35,10 +35,9 @@
                         </div>
                         <div class="tab-pane fade in active" id="tab3">
                             <h4>Previous events: </h4>
-                            <div class="info">$Event1->name</div>
-                            <div class="info">$Event2->name</div>
-                            <div class="info">$Event3->name</div>
-                            <div class="info">$Event4->name</div>
+                            @foreach($user->events as $event)
+                                <a href="{{url('event/'.$event->id)}}"><div class="info">{{$event->name}}</div></a>
+                            @endforeach
                         </div>
                 </div>
 
