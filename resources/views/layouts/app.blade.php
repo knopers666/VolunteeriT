@@ -32,7 +32,8 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                            Volunteer<span class="special">IT</span>
+
                     </a>
                 </div>
 

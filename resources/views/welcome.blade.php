@@ -16,6 +16,7 @@
 html, body {
 
     background-image: url("https://i.imgur.com/KMg0XlZ.jpg");
+    background-repeat: no-repeat;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
