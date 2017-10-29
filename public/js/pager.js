@@ -21,7 +21,7 @@ var Pager = function() {
         var html = '';
         var foo = (page - 1) * this.itemsPerPage;
         this.items.slice(foo, foo + this.itemsPerPage).each(function () {
-            html += '<a href="#" class="index-listitem list-group-item list-group-item-action flex-column align-items-start">' + $(this).html() + "</a>";
+            html += '' + $(this).html() + '';
         });
         $(this.pagingItemsContainer).html(html);
         renderControls(this.pagingControlsContainer, this.currentPage, this.numPages());

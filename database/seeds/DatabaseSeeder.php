@@ -35,28 +35,29 @@ class DatabaseSeeder extends Seeder
             'email' => str_random(10) . '@gmail.com',
             'password' => bcrypt('test123'),
         ]);
-        $admin->assignRole('user');
+        $user->assignRole('user');
 
         $moderator = User::create([
             'name' => 'moderator',
             'email' => str_random(10) . '@gmail.com',
             'password' => bcrypt('test123'),
         ]);
-        $admin->assignRole('moderator');
+        $moderator->assignRole('moderator');
 
         $fundation = User::create([
             'name' => 'fundation',
             'email' => str_random(10) . '@gmail.com',
             'password' => bcrypt('test123'),
         ]);
-        $admin->assignRole('fundation');
+        $fundation->assignRole('fundation');
 
 
-       /** \App\Event::create([
+       \App\Event::create([
             'name' => 'Pomoc dla ubogich',
             'location' => 'Warsaw',
             'date' => Carbon::parse('2017-11-13'),
             'description' => "TEST xD",
+           'owner_id' => 1
         ]);
         $faker = Faker\Factory::create();
         for ($i = 0; $i <= 100; $i++) {
@@ -65,7 +66,8 @@ class DatabaseSeeder extends Seeder
              'location' => $faker->city,
              'date' => $faker->date($format = 'Y-m-d', $min = 'now'),
              'description' => $faker->text,
+             'owner_id' => 1
          ]);
-        }**/
+        }
     }
 }
