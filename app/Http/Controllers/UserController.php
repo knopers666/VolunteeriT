@@ -8,6 +8,12 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use DateTime;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 
 class UserController extends Controller {
@@ -54,12 +60,12 @@ class UserController extends Controller {
         } else {
             // store
             $date =  DateTime::createFromFormat('d/m/Y', Input::get('date'))->format('Y-m-d');
-            $event = new \App\Event();
-            $event->name       = Input::get('name');
-            $event->location      = Input::get('location');
-            $event->date = $date;
-            $event->description = Input::get('description');
-            $event->save();
+            $user = new \App\User();
+            $user->name       = Input::get('name');
+            $user->location      = Input::get('location');
+            $user->date = $date;
+            $user->description = Input::get('description');
+            $user->save();
 
             // redirect
             Session::flash('message', 'Sukces stworzyłeś event!');
@@ -75,8 +81,8 @@ class UserController extends Controller {
      */
     public function show($id)
     {
-        $event = Event::find($id);
-        return View::make("events.view")->with('event', $event);
+        $user = User::find($id);
+        return View::make("user.view")->with('user', $user);
     }
 
     /**
@@ -87,8 +93,8 @@ class UserController extends Controller {
      */
     public function edit($id)
     {
-        $event = Event::find($id);
-        return View::make("events.edit")->with('event', $event);
+        $user = User::find($id);
+        return View::make("user.edit")->with('user', $user);
     }
 
     /**

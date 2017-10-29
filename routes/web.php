@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('user', 'UserController');
 
+Route::resource('user/edit', 'UserController@edit');
+
 Route::resource('event', 'EventController');
 
 Route::get('event/{id}/join', 'EventController@join_event');

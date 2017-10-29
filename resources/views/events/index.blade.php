@@ -24,7 +24,7 @@
                             <a href='{{ action('EventController@show', $event->id) }}' class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h5 class="mb-1">{{ $event->name }} - <span class="text-muted">{{ $event->user }}</span></h5>
+                                        <h5 class="mb-1">{{ $event->name }} - <span class="text-muted">Foundation name</span></h5>
                                         <small class="text-muted">{{ $event->location }}, {{ $event->date }}</small>
                                     </div>
                                 </div>

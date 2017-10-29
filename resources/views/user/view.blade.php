@@ -16,7 +16,7 @@
                     <div class="useravatar">
                         <img alt="" src="http://lorempixel.com/100/100/people/7/">
                     </div>
-                    <div class="card-info"> <span class="card-title">$user->name</span>
+                    <div class="card-info"> <span class="card-title">{{ $user->name }}</span>
 
                     </div>
                 </div>
@@ -29,9 +29,9 @@
                     </div>
                         <div class="tab-pane fade in active" id="tab2">
                             <h4>Info: </h4>
-                            <div class="info">Phone number: $user->number</div>
-                            <div class="info">Age: $user->age</div>
-                            <div class="info">Email: $user->email</div>
+                            <div class="info">Phone number: {{-- $user->number --}}</div>
+                            <div class="info">Age: {{-- $user->age --}}</div>
+                            <div class="info">Email: {{ $user->email }}</div>
                         </div>
                         <div class="tab-pane fade in active" id="tab3">
                             <h4>Previous events: </h4>

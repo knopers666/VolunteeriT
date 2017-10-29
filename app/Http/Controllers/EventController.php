@@ -109,7 +109,7 @@ class EventController extends Controller {
     public function update($id)
     {
         $rules = array(
-            'name'       => 'required|unique:posts|max:255',
+            'name'       => 'required|unique:events|max:255',
             'location'      => 'required',
             'date' => 'required',
             'description' => 'required'
@@ -122,8 +122,9 @@ class EventController extends Controller {
                 ->withInput(Input::except('password'));
         } else {
             // store
-            $date =  DateTime::createFromFormat('d/m/Y', Input::get('date'))->format('Y-m-d');
-            $event = \App\Event()::find($id);
+            $date =  DateTime::createFromFormat('Y-m-d', Input::get('date'));
+            $date = $date->format('Y-m-d');
+            $event = \App\Event::find($id);
             $event->name       = Input::get('name');
             $event->location      = Input::get('location');
             $event->date = $date;

@@ -23,19 +23,19 @@
                 </div>
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="name" class="form-control" id="name" value="{{ $event->name }}">
+                    <input name="name" type="name" class="form-control" id="name" value="{{ $event->name }}">
                 </div>
                 <div class="form-group">
                     <label for="location">Location:</label>
-                    <input type="location" class="form-control" id="location" value="{{ $event->location }}">
+                    <input name="location" type="location" class="form-control" id="location" value="{{ $event->location }}">
                 </div>
                 <div class="form-group">
                     <label for="date">Date:</label>
-                    <input type="data" class="form-control" id="date" value="{{ $event->date }}">
+                    <input name="date" type="data" class="form-control" id="date" value="{{ $event->date }}">
                 </div>
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <input type="description" class="form-control" id="description" value="{{ $event->description }}">
+                    <input name="description" type="description" class="form-control" id="description" value="{{ $event->description }}">
                 </div>
 
                 <div class="col-xs-offset-5 edit-btn">
