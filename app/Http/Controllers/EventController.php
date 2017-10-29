@@ -132,7 +132,7 @@ class EventController extends Controller {
 
             // redirect
             Session::flash('message', 'Successfully edited event!');
-            return Redirect::to('event');
+            return Redirect::to('/');
         }
     }
 
