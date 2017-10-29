@@ -154,6 +154,8 @@ class EventController extends Controller {
     public function join_event($id) {
         $event = Event::find($id);
         $user = Auth::user();
-
+        $user->events()->sync([$event->id]);
+        Session::flash('message', 'Successfully join to the event!');
+        return Redirect::to('event');
     }
 }

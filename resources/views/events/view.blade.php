@@ -19,7 +19,7 @@
         </div>
         <div class="row">
             <div class="col-md-2 col-md-offset-8">
-                <button type="button" class="btn btn-primary">Sign up</button>
+                <a href='{{ action('EventController@join_event', $event->id) }}'><button type="button" class="btn btn-primary">Sign up</button></a>
             </div>
         </div>
     </div>

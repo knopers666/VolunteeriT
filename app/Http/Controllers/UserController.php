@@ -141,4 +141,5 @@ class UserController extends Controller {
         Session::flash('message', 'Successfully deleted the event!');
         return Redirect::to('events');
     }
+
 }
