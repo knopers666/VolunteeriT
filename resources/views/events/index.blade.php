@@ -52,19 +52,4 @@
             </nav>
         </div>
     </div>
-
-    <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-    <script src="{{ asset("js/pager.js") }}"></script>
-    <script>
-        var pager = new Pager();
-        $(document).ready(function() {
-//          pager.itemsPerPage = 10;
-            pager.pagingItemsContainer = $('#index-list');
-            pager.items = $('div.index-listitem', pager.pagingItemsContainer);
-            pager.showPage(1);
-        });
-    </script>
 @endsection
