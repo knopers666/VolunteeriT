@@ -7,7 +7,7 @@
 
     <div class="container">
         <div class="row">
-            <form action="{{ url('event/'.$event->id.'/edit') }}" method="put" class="col-md-offset-3 col-lg-6 col-sm-6">
+            <form action="{{ url('event/'.$event->id.'/edit') }}" method="post" class="col-md-offset-3 col-lg-6 col-sm-6">
                 <div class="eventavatar">
                     <img alt="" src="http://lorempixel.com/200/200/city/3/">
                     <h2>$event->name</h2>
@@ -32,6 +32,7 @@
                 <div class="col-xs-offset-5 edit-btn">
                     <input type="button" class="btn-lg btn-primary">Edit</input>
                 </div>
+                <input type="hidden" name="_method" value="put" />
             </form>
 
         </div>
