@@ -13,6 +13,10 @@
                     <h2>{{ $user->name }}</h2>
                 </div>
                 <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input name="name" type="name" class="form-control" id="name" value="{{ $user->name }}">
+                </div>
+                <div class="form-group">
                     <label for="about">About me:</label>
                     <input name="about" type="about" class="form-control" id="about">
                 </div>
@@ -37,6 +41,9 @@
                 <div class="col-xs-offset-5 edit-btn">
                 <button type="submit" class="btn-lg btn-primary">Edit</button>
                 </div>
+
+                <input type="hidden" name="_method" value="put">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
             </form>
 
         </div>

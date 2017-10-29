@@ -60,7 +60,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ url('user/edit') }}">
+                                        <a href="{{ url('user/' . Auth::user()->id . '/edit') }}">
                                             Ustawienia
                                         </a>
 

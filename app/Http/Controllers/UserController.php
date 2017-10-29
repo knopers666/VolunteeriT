@@ -47,29 +47,24 @@ class UserController extends Controller {
     {
         $rules = array(
             'name'       => 'required|unique:users|max:255',
-            'location'      => 'required',
-            'date' => 'required',
-            'description' => 'required'
+            'email'      => 'required'
         );
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('event/create')
+            return Redirect::to('user/create')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
             // store
-            $date =  DateTime::createFromFormat('d/m/Y', Input::get('date'))->format('Y-m-d');
             $user = new \App\User();
             $user->name       = Input::get('name');
-            $user->location      = Input::get('location');
-            $user->date = $date;
-            $user->description = Input::get('description');
+            $user->email      = Input::get('email');
             $user->save();
 
             // redirect
-            Session::flash('message', 'Sukces stworzyłeś event!');
-            return Redirect::to('event');
+            Session::flash('message', 'Sukces stworzyłeś usera!');
+            return Redirect::to('user');
         }
     }
 
@@ -106,30 +101,25 @@ class UserController extends Controller {
     public function update($id)
     {
         $rules = array(
-            'name'       => 'required|unique:posts|max:255',
-            'location'      => 'required',
-            'date' => 'required',
-            'description' => 'required'
+            'name'       => 'required|unique:users|max:255',
+            'email'      => 'required'
         );
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('event/edit')
+            return Redirect::to('user/edit')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
             // store
-            $date =  DateTime::createFromFormat('d/m/Y', Input::get('date'))->format('Y-m-d');
-            $event = \App\Event()::find($id);
-            $event->name       = Input::get('name');
-            $event->location      = Input::get('location');
-            $event->date = $date;
-            $event->description = Input::get('description');
-            $event->save();
+            $user = \App\User::find($id);
+            $user->name       = Input::get('name');
+            $user->email      = Input::get('email');
+            $user->save();
 
             // redirect
-            Session::flash('message', 'Sukces uaktułalniłeść event!');
-            return Redirect::to('event');
+            Session::flash('message', 'Sukces uaktualniłeś usera!');
+            return Redirect::to('user');
         }
     }
 
@@ -142,10 +132,10 @@ class UserController extends Controller {
     public function destroy($id)
     {
         // delete
-        $event = Event::find($id);
-        $event->delete();
-        Session::flash('message', 'Successfully deleted the event!');
-        return Redirect::to('events');
+        $user = User::find($id);
+        $user->delete();
+        Session::flash('message', 'Successfully deleted the user!');
+        return Redirect::to('user');
     }
 
 }
