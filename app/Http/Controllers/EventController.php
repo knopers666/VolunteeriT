@@ -1,8 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use App\Event;
+use App\User;
 use DateTime;
-use Egulias\EmailValidator\Validation\Exception\EmptyValidationList;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -84,7 +84,8 @@ class EventController extends Controller {
     public function show($id)
     {
         $event = Event::find($id);
-        return View::make("events.view")->with('event', $event);
+        $owner = User::find($event->owner_id);
+        return View::make("events.view")->with(['event' => $event, 'user' => $owner]);
     }
 
     /**
@@ -148,5 +149,13 @@ class EventController extends Controller {
         $event->delete();
         Session::flash('message', 'Successfully deleted the event!');
         return Redirect::to('events');
+    }
+
+    public function join_event($id) {
+        $event = Event::find($id);
+        $user = Auth::user();
+        $user->events()->sync([$event->id]);
+        Session::flash('message', 'Successfully join to the event!');
+        return Redirect::to('event');
     }
 }
