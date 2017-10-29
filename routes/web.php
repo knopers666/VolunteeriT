@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,3 +28,7 @@ Route::resource('user/edit', 'UserController@edit');
 Route::resource('event', 'EventController');
 
 Route::get('event/{id}/join', 'EventController@join_event');
+
+Route::get('logout', function() {
+    return view('auth/logout');
+});
