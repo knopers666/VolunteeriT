@@ -7,35 +7,35 @@
 
     <div class="container">
         <div class="row">
-            <form class="col-md-offset-3 col-lg-6 col-sm-6">
+            <form action="{{ url('user/'.$user->id) }}" method="post" class="col-md-offset-3 col-lg-6 col-sm-6">
                 <div class="useravatar">
                     <img alt="" src="http://lorempixel.com/100/100/people/7/">
-                    <h2>$user->name</h2>
+                    <h2>{{ $user->name }}</h2>
                 </div>
                 <div class="form-group">
                     <label for="about">About me:</label>
-                    <input type="about" class="form-control" id="about">
+                    <input name="about" type="about" class="form-control" id="about">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone number:</label>
-                    <input type="phone" class="form-control" id="phone">
+                    <input name="phone" type="phone" class="form-control" id="phone">
                 </div>
                 <div class="form-group">
                     <label for="birth">Date of birth:</label>
-                    <input type="birth" class="form-control" id="birth">
+                    <input name="birth" type="birth" class="form-control" id="birth">
                 </div>
                 <div class="form-group">
                     <label for="email">Email address:</label>
-                    <input type="email" class="form-control" id="email">
+                    <input name="email" type="email" class="form-control" id="email" value="{{ $user->email }}">
                 </div>
 
                 <div class="form-group">
                     <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" id="pwd">
+                    <input name="password" type="password" class="form-control" id="pwd">
                 </div>
 
                 <div class="col-xs-offset-5 edit-btn">
-                <button type="button" class="btn-lg btn-primary">Edit</button>
+                <button type="submit" class="btn-lg btn-primary">Edit</button>
                 </div>
             </form>
 

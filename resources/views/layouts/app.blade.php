@@ -40,7 +40,10 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-
+                        @auth
+                            <li><a href="{{ url('event') }}">Events</a></li>
+                            <li><a href="{{ url('user') }}">Users</a></li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
